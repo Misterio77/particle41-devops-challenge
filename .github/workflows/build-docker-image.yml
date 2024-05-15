@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Build and push docker image
+
+jobs:
+  new_version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build image
+      run: |
+        docker build -t simple_time_service:$GITHUB_SHA
+    - name: Push image to DockerHub
+      env:
+        REPOSITORY: docker.io/misterio77
+      run: |
+        docker tag simple_time_service:$GITHUB_SHA $REPOSITORY/simple_time_service:$GITHUB_SHA
+        docker tag simple_time_service:$GITHUB_SHA $REPOSITORY/simple_time_service:latest
+        docker push $REPOSITORY/simple_time_service:$GITHUB_SHA
+        docker push $REPOSITORY/simple_time_service:latest
