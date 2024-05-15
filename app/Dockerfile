@@ -7,6 +7,7 @@ RUN cargo build --release
 FROM alpine:3.19
 WORKDIR /app
 COPY --from=builder /app/target/release/simple_time_service .
+USER nobody
 ENV STS_PORT=8080
 EXPOSE 8080
 ENTRYPOINT ["/app/simple_time_service"]
