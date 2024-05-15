@@ -1,0 +1,36 @@
+[package]
+name = "simple_time_service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.axum]
+version = "0.7"
+
+[dependencies.tokio]
+version = "1"
+features = ["full"]
+
+[dependencies.clap]
+version = "4"
+features = ["derive", "env"]
+
+[dependencies.log]
+version = "0.4"
+features = ["std"]
+
+[dependencies.simple_logger]
+version = "4"
+
+[dependencies.anyhow]
+version = "1"
+
+[dependencies.serde]
+version = "1"
+features = ["derive"]
+
+[dependencies.serde_json]
+version = "1"
+
+[dependencies.chrono]
+version = "0.4"
+features = ["serde"]
