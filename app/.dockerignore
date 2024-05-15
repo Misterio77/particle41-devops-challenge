@@ -1,0 +1,7 @@
+.dockerignore
+.gitignore
+.git
+Dockerfile
+
+# Keep in sync with .gitignore
+target
