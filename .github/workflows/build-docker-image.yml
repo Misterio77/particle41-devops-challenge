@@ -14,6 +14,12 @@ jobs:
     - name: Build image
       run: |
         docker build -t simple_time_service:$GITHUB_SHA app
+
+    - name: Authenticate to DockerHub
+      env:
+        DOCKERHUB_PAT: ${{secrets.DOCKERHUB_PAT}}
+      run:
+        docker login -u misterio77 -p "$DOCKERHUB_PAT"
     - name: Push image to DockerHub
       env:
         REPOSITORY: docker.io/misterio77
