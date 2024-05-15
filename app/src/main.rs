@@ -20,7 +20,13 @@ async fn main() -> Result<()> {
     let service = app.into_make_service_with_connect_info::<SocketAddr>();
 
     log::info!("Listening on {addr}");
-    axum::serve(TcpListener::bind(addr).await?, service).await?;
+    axum::serve(TcpListener::bind(addr).await?, service)
+        .with_graceful_shutdown(handle_shutdown())
+        .await?;
 
     Ok(())
+}
+
+async fn handle_shutdown() {
+    tokio::signal::ctrl_c().await.unwrap()
 }
