@@ -14,6 +14,8 @@ terraform {
   }
 }
 
-resource "aws_s3_bucket" "tfstate" {}
+resource "aws_s3_bucket" "tfstate" {
+  force_destroy = true
+}
 
 provider "aws" {}
