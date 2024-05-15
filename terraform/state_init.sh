@@ -49,7 +49,7 @@ fi
 export AWS_REGION="us-east-1"
 
 # Initialize s3 backend
-"$terraform" init -backend-config "bucket=$bucket_name" >&2
+"$terraform" init -migrate-state -backend-config "bucket=$bucket_name" >&2
 # Remove existing state of this bucket, if present
 "$terraform" state rm aws_s3_bucket.tfstate &> /dev/null || true
 # Import the bucket into the state
