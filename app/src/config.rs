@@ -7,7 +7,7 @@ use std::net::{IpAddr, SocketAddr};
 /// Uses 'clap' to extract both from CLI as well as env vars
 #[derive(Parser, Clone)]
 pub struct AppConfig {
-    #[clap(long, default_value = "0.0.0.0", env = "STS_HOST")]
+    #[clap(long, default_value = "::", env = "STS_HOST")]
     pub address: IpAddr,
     #[clap(long, default_value = "8080", env = "STS_PORT")]
     pub port: u16,
