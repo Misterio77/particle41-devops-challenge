@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     key    = "terraform.tfstate"
     # This has to be hardcoded. It does not have to match the provider, as we
-    # create/import it through terraform-state-init.sh.
+    # create/import it through state_init.sh.
     region = "us-east-1"
   }
 
