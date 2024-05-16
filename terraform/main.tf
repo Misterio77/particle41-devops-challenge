@@ -14,8 +14,9 @@ terraform {
   }
 }
 
-resource "aws_s3_bucket" "tfstate" {
-  force_destroy = true
-}
-
 provider "aws" {}
+
+# If you want, you can manage the bucket itself with terraform
+# Do keep in mind 'terraform destroy' might take your state with it, and risk
+# leaving you with some dangling resources to be removed manually.
+# resource "aws_s3_bucket" "tfstate" {}
