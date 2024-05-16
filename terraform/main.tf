@@ -14,9 +14,10 @@ terraform {
   }
 }
 
-provider "aws" {}
-
-# If you want, you can manage the bucket itself with terraform
-# Do keep in mind 'terraform destroy' might take your state with it, and risk
-# leaving you with some dangling resources to be removed manually.
-# resource "aws_s3_bucket" "tfstate" {}
+provider "aws" {
+  # By default, terraform will use your AWS profile (either CLI config or
+  # AWS_REGION env var) region.
+  # But you may specify it as code here, if you prefer.
+  # region = "us-east-1"
+}
+data "aws_region" "current" {}

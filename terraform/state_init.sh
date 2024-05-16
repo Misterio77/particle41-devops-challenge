@@ -50,8 +50,3 @@ export AWS_REGION="us-east-1"
 
 # Initialize s3 backend
 "$terraform" init -migrate-state -backend-config "bucket=$bucket_name" >&2
-
-# If you want, you can manage the bucket itself with terraform
-# Do keep in mind 'terraform destroy' might take your state with it, and risk
-# leaving you with some dangling resources to be removed manually.
-# "$terraform" import aws_s3_bucket.tfstate "$bucket_name" >&2
