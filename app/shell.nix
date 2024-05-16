@@ -7,5 +7,6 @@ pkgs.mkShell {
     rust-analyzer
     rustfmt
     clippy
+    kubectl
   ];
 }
