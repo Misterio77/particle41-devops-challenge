@@ -22,6 +22,8 @@ module "eks" {
     default_node_group = {}
   }
 
+  enable_cluster_creator_admin_permissions = true
+
   tags = {
     Project = "particle41-challenge"
   }
