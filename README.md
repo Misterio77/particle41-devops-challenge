@@ -2,6 +2,10 @@
 
 Hi! This is my solution for the challenge.
 
+## TODO
+
+- Try more extra credit
+
 ## Overview
 
 This repository includes three directories:
@@ -62,19 +66,15 @@ Non functional reqs:
 
 - [x] Code quality and style
     - Again, hope you like it :D
-- [ ] Use variables in your infrastructure root module and provide some good defaults in a `terraform.tfvars` file.
-    - TODO
+- [x] Use variables in your infrastructure root module and provide some good defaults in a `terraform.tfvars` file.
     - I prefer to provide the defaults together with the variable definitions.
 
 ### Extra
 
 - [ ] TF code to actually deploy the 'simpletimeservice' container image to EKS.
-    - TODO
 - [ ] TF code to use the Helm provider and any public helm chart.
 - [ ] Updates to the Kubernetes manifest to utilize best practices
-    - TODO
 - [ ] A sidecar container of some kind, such as fluentbit.
-    - TODO
 - [x] Code to initialize and use a remote Terraform backend.
     - See [`state_init.sh`](./terraform/state_init.sh) :)
 - [x] Create a simple CI/CD pipeline to publish your image.

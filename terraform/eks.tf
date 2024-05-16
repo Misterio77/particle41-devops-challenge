@@ -6,6 +6,7 @@ module "eks" {
   cluster_version = "1.29"
 
   cluster_endpoint_public_access  = true
+  enable_cluster_creator_admin_permissions = true
 
   vpc_id                   = module.vpc.vpc_id
   subnet_ids               = module.vpc.private_subnets
@@ -13,14 +14,12 @@ module "eks" {
 
   eks_managed_node_groups = {
     default_node_group = {
-      min_size     = 1
-      max_size     = 10
-      desired_size = 2
-      instance_types = ["t2.small"]
+      min_size     = var.nodes_min_size
+      max_size     = var.nodes_max_size
+      desired_size = var.nodes_desired_size
+      instance_types = var.nodes_instance_types
     }
   }
-
-  enable_cluster_creator_admin_permissions = true
 
   tags = {
     Project = "particle41-challenge"
