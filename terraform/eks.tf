@@ -18,6 +18,10 @@ module "eks" {
     instance_types = ["t2.small"]
   }
 
+  eks_managed_node_groups = {
+    default_node_group = {}
+  }
+
   tags = {
     Project = "particle41-challenge"
   }
