@@ -1,4 +1,9 @@
-{ pkgs ? import <nixpkgs> { } }:
+{pkgs ? import <nixpkgs> {}}:
 pkgs.mkShell {
-  packages = [pkgs.awscli2 pkgs.jq pkgs.opentofu];
+  packages = with pkgs; [
+    awscli2
+    jq
+    opentofu
+    kubectl
+  ];
 }
